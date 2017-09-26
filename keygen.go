@@ -29,7 +29,7 @@ func CreateTLSCerts() {
 	template := x509.Certificate{
 		SerialNumber: big.NewInt(1),
 		Subject: pkix.Name{
-			CommonName:   "localhost",
+			CommonName:   "127.0.0.1",
 			Organization: []string{"Levi Gross"},
 		},
 		NotBefore: now,
@@ -39,8 +39,8 @@ func CreateTLSCerts() {
 		KeyUsage:     x509.KeyUsageCertSign | x509.KeyUsageKeyEncipherment | x509.KeyUsageDigitalSignature,
 
 		BasicConstraintsValid: true,
-		IsCA:                  true,
-		DNSNames:              []string{"levigross.com", "localhost"},
+		IsCA:     true,
+		DNSNames: []string{"levigross.com", "localhost"},
 	}
 	theBytes, err := x509.CreateCertificate(rand.Reader, &template,
 		&template, &key.PublicKey, &key)
