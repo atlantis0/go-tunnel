@@ -27,7 +27,7 @@ rm $BIN_NAME
 
 # create a p12 file
 # openssl pkcs12 -export -inkey private.key -in public.pem -name tunnel -out final_result.pfx
-openssl pkcs12 -export -out local_certificate.p12 -inkey private.pem -in public.pem
+# openssl pkcs12 -export -out local_certificate.p12 -inkey private.pem -in public.pem
 
 # for running the server
 # ./go-tunnel --ipAddress=127.0.0.1 --port=1212 --remoteIPAddress=54.202.175.229 --remotePort=3128 --createCert=False --server=True --client=False
